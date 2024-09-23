@@ -1,4 +1,4 @@
-from app.models import Service, FrameWork, ProgrammingLanguage, DataBase
+from app.models import Service, FrameWork, ProgrammingLanguage, DataBase, Category
 from sqlalchemy.orm import Session
 
 def get_services(db: Session):
@@ -9,5 +9,9 @@ def service_by_id(db: Session, service_id: int):
 
 def create_category(db: Session, category_name: str):
     category = Category(name=category_name)
+    db.add(category)
+    db.commit()
+    db.refresh(category)
+    return category
 
 
