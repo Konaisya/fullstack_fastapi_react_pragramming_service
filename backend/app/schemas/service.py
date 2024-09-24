@@ -15,6 +15,15 @@ class ServiceResponse(BaseModel):
     name: str
     category: SubDataResponse
     programming_language: SubDataResponse
-    frame_work: SubDataResponse
+    framework: SubDataResponse
     database: SubDataResponse
     starting_price: int
+
+class ServiceCreate(BaseModel):
+    name: str
+    category_id: int
+    programming_language_id: int
+    framework_id: int
+    database_id: int
+    starting_price: int
+
